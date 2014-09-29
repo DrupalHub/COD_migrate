@@ -1,0 +1,18 @@
+name = COD Migrate
+description = Import dummy content for the development of COD
+core = 7.x
+package = COD
+
+dependencies[] = migrate
+
+files[] = includes/cod.migrate.entity.inc
+
+; Node.
+files[] = includes/handlers/node/Event.php
+
+; Terms.
+;files[] = includes/handlers/terms/SessionTracks.php
+files[] = includes/handlers/terms/SponsorShip.php
+
+; User.
+files[] = includes/handlers/user/User.php

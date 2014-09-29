@@ -1,0 +1,28 @@
+<?php
+/**
+ * @file
+ * Main module for for COD migrate.
+ */
+
+/**
+ * Implements hook_migrate_api().
+ */
+function cod_migrate_migrate_api() {
+
+  $classes = array(
+    'Event',
+    'User',
+    'SponsorShip',
+  );
+
+  $api = array(
+    'api' => 2,
+    'migrations' => array(),
+  );
+
+  foreach ($classes as $class) {
+    $api['migrations'][$class] = array('class_name' => $class);
+  }
+
+  return $api;
+}
