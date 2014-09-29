@@ -5,7 +5,7 @@
  *
  * Handling the migration process for the Event room entity.
  */
-class RoomDestination extends MigrateDestinationEntity {
+class TimeDestination extends MigrateDestinationEntity {
 
   /**
    * Basic initialization
@@ -14,15 +14,15 @@ class RoomDestination extends MigrateDestinationEntity {
    *  Options applied to comments.
    */
   public function __construct(array $options = array()) {
-    parent::__construct('cod_event_room', '', $options);
+    parent::__construct('cod_event_time', '', $options);
   }
 
   static public function getKeySchema() {
     return array(
-      'evtrid' => array(
+      'evttid' => array(
         'type' => 'int',
         'unsigned' => TRUE,
-        'description' => 'ID of destination room',
+        'description' => 'ID of destination time',
       ),
     );
   }
@@ -32,8 +32,7 @@ class RoomDestination extends MigrateDestinationEntity {
    */
   public function fields() {
     return array(
-      'name' => t('The name of the room'),
-      'capacity' => t('Amount of people for the room'),
+      'label' => t('The label of the time slot'),
     );
   }
 
@@ -41,15 +40,15 @@ class RoomDestination extends MigrateDestinationEntity {
    * {@inheritdoc}
    */
   public function import(stdClass $object, stdClass $row) {
-    $entity = entity_create('cod_event_room', array('status' => 1, 'name' => $row->name, 'capacity' => $row->capacity));
+    $entity = entity_create('cod_event_time', array('status' => 1, 'date_label' => $row->label));
     $this->prepare($entity, $row);
-    entity_save('cod_event_room', $entity);
+    entity_save('cod_event_time', $entity);
     $this->complete($entity, $row);
     $this->numCreated++;
-    return array($entity->evtrid);
+    return array($entity->evttid);
   }
 
   public function rollback($role) {
-    entity_delete('cod_event_room', $role['destid1']);
+    entity_delete('cod_event_time', $role['destid1']);
   }
 }

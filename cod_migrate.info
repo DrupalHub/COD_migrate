@@ -19,6 +19,8 @@ files[] = includes/handlers/user/User.php
 
 ; Entities
 files[] = includes/handlers/entities/Room.php
+files[] = includes/handlers/entities/Time.php
 
 ; Migrate handlers.
 files[] = includes/plugins/room.inc
+files[] = includes/plugins/time.inc

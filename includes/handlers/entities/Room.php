@@ -13,7 +13,7 @@ class Room extends Migration {
 
   public function __construct() {
     parent::__construct();
-    $this->description = t('Import users from a CSV file.');
+    $this->description = t('Import rooms from a CSV file.');
 
     $this->addFieldMapping('name', 'name');
     $this->addFieldMapping('capacity', 'capacity');

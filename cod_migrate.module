@@ -14,6 +14,7 @@ function cod_migrate_migrate_api() {
     'User',
     'SponsorShip',
     'Room',
+    'Time',
   );
 
   $api = array(
