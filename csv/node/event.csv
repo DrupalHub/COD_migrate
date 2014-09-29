@@ -1,2 +1,2 @@
-ID,Title,Body,Date,Image,Program,Tickets,Session view,User
-event1,DrupalCamp Antarctica,DrupalCamp in Antarctica. A lot of penguins,1/1/2012,pinguins.gif,Penguins!,1,user1
+ID,Title,Body,Start date,End date,Image,Session view,Tickets,User
+event1,DrupalCamp Antarctica,DrupalCamp in Antarctica. A lot of penguins,1/1/2012 10:15,1/1/2012 10:30,pinguins.gif,1,0,user1
