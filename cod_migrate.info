@@ -16,3 +16,9 @@ files[] = includes/handlers/terms/SponsorShip.php
 
 ; User.
 files[] = includes/handlers/user/User.php
+
+; Entities
+files[] = includes/handlers/entities/Room.php
+
+; Migrate handlers.
+files[] = includes/plugins/room.inc

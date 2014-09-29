@@ -13,6 +13,7 @@ function cod_migrate_migrate_api() {
     'Event',
     'User',
     'SponsorShip',
+    'Room',
   );
 
   $api = array(
