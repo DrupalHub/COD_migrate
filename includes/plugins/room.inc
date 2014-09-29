@@ -41,11 +41,15 @@ class RoomDestination extends MigrateDestinationEntity {
    * {@inheritdoc}
    */
   public function import(stdClass $object, stdClass $row) {
-    $entity = entity_create('cod_event_room', $row);
+    $entity = entity_create('cod_event_room', array('status' => 1, 'name' => $row->name, 'capacity' => $row->capacity));
     $this->prepare($entity, $row);
     entity_save('cod_event_room', $entity);
     $this->complete($entity, $row);
-
+    $this->numCreated++;
     return array($entity->evtrid);
+  }
+
+  public function rollback($role) {
+    entity_delete('cod_event_room', $role['destid1']);
   }
 }

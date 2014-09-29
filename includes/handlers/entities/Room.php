@@ -7,6 +7,8 @@ class Room extends Migration {
 
   public $csvColumns = array(
     array('id', 'ID'),
+    array('name', 'name'),
+    array('capacity', 'capacity'),
   );
 
   public function __construct() {
@@ -31,7 +33,7 @@ class Room extends Migration {
 
     // Create a MigrateSource object.
     $this->source = new MigrateSourceCSV(drupal_get_path('module', 'cod_migrate') . '/csv/entities/room.csv', $this->csvColumns, array('header_rows' => 1));
-    $this->destination = new MigrateDestinationUser();
+    $this->destination = new RoomDestination();
   }
 
 }
